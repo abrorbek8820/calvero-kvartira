@@ -1,0 +1,124 @@
+/* === ASOSIY QISM === */
+.reg-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff8e1;
+  transition: all 0.5s ease;
+}
+
+body.dark .reg-wrapper {
+  background-color: #3b2f29; /* yumshoq shokolad */
+}
+
+/* === ICHKI QUTI === */
+.reg-box {
+  background: #fffefc;
+  border: 1px solid #f3e2b2;
+  border-radius: 18px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 32px;
+  width: 90%;
+  max-width: 360px;
+  text-align: center;
+  transition: all 0.4s ease;
+}
+
+body.dark .reg-box {
+  background: #4a3b33;
+  border-color: #6d584e;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* === Sarlavha === */
+.reg-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #5a4200;
+  margin-bottom: 1.5rem;
+}
+
+body.dark .reg-title {
+  color: #ffeaa0;
+}
+
+/* === Form va Input === */
+.reg-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.reg-input {
+  border: 1px solid #e3d4a5;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 1rem;
+  background: #fffef8;
+  color: #2a2518;
+  transition: all 0.3s ease;
+}
+
+.reg-input::placeholder {
+  color: #9c8f68;
+}
+
+body.dark .reg-input {
+  background: #5a463d;
+  border-color: #8a705f;
+  color: #ffedb3;
+}
+
+body.dark .reg-input::placeholder {
+  color: #d9c48c;
+}
+
+.reg-input:focus {
+  outline: none;
+  box-shadow: 0 0 6px 2px #f7c948;
+}
+
+body.dark .reg-input:focus {
+  box-shadow: 0 0 8px 2px #ffd363;
+}
+
+/* === Tugma === */
+.reg-btn {
+  background: linear-gradient(90deg, #facc15, #f59e0b);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 10px 0;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(250, 200, 50, 0.4);
+  transition: all 0.25s ease;
+}
+
+body.dark .reg-btn {
+  background: linear-gradient(90deg, #eab308, #c68a04);
+  box-shadow: 0 4px 10px rgba(255, 210, 80, 0.45);
+}
+
+.reg-btn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 5px 14px rgba(250, 200, 50, 0.5);
+}
+
+.reg-btn:active {
+  transform: scale(0.97);
+}
+
+/* === Izoh yozuvi === */
+.reg-desc {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #7a6a3c;
+}
+
+body.dark .reg-desc {
+  color: #f0e0a3;
+}

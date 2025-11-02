@@ -1,0 +1,296 @@
+/* Calvero 3D Uylar dizayni */
+.carousel-wrapper {
+  background: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+.carousel-title {
+  font-size: 1.9rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+  color: var(--accent);
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.carousel {
+  width: 100%;
+  max-width: 420px;
+  height: 75vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  perspective: 1200px;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* Kartalar */
+.carousel-card {
+  scroll-snap-align: center;
+  background: var(--card-bg);
+  border-radius: 18px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease, opacity 0.4s ease, box-shadow 0.3s ease, background 0.4s ease;
+  cursor: pointer;
+  box-shadow: 0 15px 32px var(--accent);
+}
+
+/*.carousel-card:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}*/
+
+.carousel-card.zoomed {
+  position: relative;
+  box-shadow: 0 0 40px var(--accent);
+  background: var(--highlight-bg);
+  z-index: 50;
+}
+
+.carousel-img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 12px;
+  border: 2px solid var(--accent);
+}
+
+.carousel-card h2 {
+  font-size: 1.15rem; /* oldingi 1rem o‘rniga */
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.carousel-card p {
+  font-size: 0.95rem; /* oldingi 0.85rem o‘rniga */
+  line-height: 1.4;
+}
+.price {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* Yengil harakat effekti */
+.carousel-card.active {
+  transform: scale(1.05);
+}
+
+/* 🔹 Filtr paneli */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 18px;
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.filter-bar select {
+  background: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 6px 10px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  outline: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.25s ease;
+}
+
+.filter-bar select:hover,
+.filter-bar select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 6px var(--accent);
+}
+
+/* Dark rejim */
+body.dark .filter-bar select {
+  background: #2f2f2f;
+  border-color: #444;
+  color: #f2f2f2;
+}
+
+.carousel-placeholder {
+  width: 100%;
+  height: 230px;
+  border-radius: 14px;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, #dcdcdc, #bcbcbc);
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Kimlar uchun */
+.target-tag {
+  font-size: 0.95rem; /* oldingi 0.85rem o‘rniga */
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+body.dark .carousel-placeholder {
+  background: linear-gradient(135deg, #3a3a3a, #2c2c2c);
+}
+
+.container {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+}
+body.dark .container {
+  background-color: #444;
+  color:#bcbcbc;
+}
+
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 1.05rem;
+  transition: all 0.25s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  text-decoration: none;
+}
+
+/* 🌍 Xaritada ko‘rish */
+.action-btn.view {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+}
+.action-btn.view:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(59,130,246,0.4);
+}
+
+/* 📞 Qo‘ng‘iroq qilish */
+.action-btn.call {
+  background: linear-gradient(135deg, #059669, #10b981);
+}
+.action-btn.call:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(16,185,129,0.4);
+}
+
+/* 🌙 Dark rejim */
+body.dark .action-btn.view {
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+}
+body.dark .action-btn.call {
+  background: linear-gradient(135deg, #10b981, #34d399);
+}
+
+/* 🌞 Light rejim */
+body.light select,
+body.light input,
+body.light textarea {
+  background: #fff8dc; /* yumshoq seriq - “light cream” */
+  border: 1px solid #e6c76e;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+body.light select:focus,
+body.light input:focus,
+body.light textarea:focus {
+  border-color: #eab308; /* oltin rang */
+  box-shadow: 0 0 8px rgba(234, 179, 8, 0.4);
+  outline: none;
+}
+
+/* 🌙 Dark rejim */
+body.dark select,
+body.dark input,
+body.dark textarea {
+  background: #3c3c3c; /* kulrang, ko‘zni charchatmaydi */
+  border: 1px solid #a38f54; /* oltin-jigar aralash */
+  color: #f8f8f8;
+  transition: all 0.3s ease;
+}
+
+body.dark select:focus,
+body.dark input:focus,
+body.dark textarea:focus {
+  border-color: #ffd166; /* yumshoq sariq */
+  box-shadow: 0 0 8px rgba(255, 209, 102, 0.4);
+  outline: none;
+}
+
+/* 🔘 Checkbox va label */
+body.dark label,
+body.light label {
+  color: #d8d8d8;
+  font-weight: 500;
+}
+
+/* 🖼️ Fayl tanlash dizayni */
+input[type="file"] {
+  background: #fdf6d2;
+  border: 1px dashed #d4b863;
+  cursor: pointer;
+}
+body.dark input[type="file"] {
+  background: #4a4a4a;
+  border-color: #bfa76a;
+}
+
+/* 🌞 Light rejim */
+body.light label,
+body.light .text-gray-600 {
+  color: #5a4200; /* iliq jigarrang */
+  font-weight: 600;
+}
+
+/* 🖼️ Rasm sarlavhasi uchun */
+body.light label.block {
+  color: #6d5400;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* 🌙 Dark rejimda moslik */
+body.dark label,
+body.dark .text-gray-600 {
+  color: #f5e6b3; /* och oltin */
+  font-weight: 500;
+}
+
+body.dark label.block {
+  color: #ffeb99;
+  font-weight: 600;
+}
+
+/* 🔘 Checkbox yozuvi */
+label.flex {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+/* 🔲 Checkbox uchun */
+input[type="checkbox"] {
+  accent-color: #eab308; /* oltin rang */
+}
+

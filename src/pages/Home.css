@@ -1,0 +1,19 @@
+.button {
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, #4a90e2, #357ab7) !important;
+  color: #ffffff !important;
+  border: none;
+  padding: 15px 30px;
+  width: 300px;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 10px 10px 20px rgba(83, 115, 204, 0.548);
+  transition: background-color 0.3s, transform 0.2s;
+
+  white-space: nowrap;   /* ✅ Matnni 1 qatorda saqla */
+  text-align: center;    /* ✅ Markazda */
+}

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>calvero-home</title>
+
+    <!-- 🌓 Tema avtomatik aniqlash skripti -->
+    <script>
+      (function () {
+        // 1️⃣ URL’dan ?mode=dark yoki ?mode=light qiymatini olish
+        const params = new URLSearchParams(window.location.search);
+        const modeFromUrl = params.get("mode");
+
+        // 2️⃣ localStorage'dan mavjud qiymatni olish
+        const savedMode = localStorage.getItem("mode");
+
+        // 3️⃣ Oxirgi variantni tanlash
+        const mode = modeFromUrl || savedMode || "light";
+
+        // 4️⃣ HTML tegi ustiga dark class qo‘shish (Tailwind uchun)
+        if (mode === "dark") {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+
+        // 5️⃣ localStorage'ga saqlab qo‘yish
+        localStorage.setItem("mode", mode);
+
+        // 6️⃣ Fonga silliq o‘tish (ixtiyoriy)
+        document.documentElement.style.transition = "background 0.4s ease, color 0.4s ease";
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

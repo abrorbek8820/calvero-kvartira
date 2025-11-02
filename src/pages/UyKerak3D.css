@@ -1,0 +1,125 @@
+/* Calvero 3D Uylar dizayni */
+.carousel-wrapper {
+  background: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+.carousel-title {
+  font-size: 1.9rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+  color: var(--accent);
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.carousel {
+  width: 100%;
+  max-width: 420px;
+  height: 75vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  perspective: 1200px;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* Kartalar */
+.carousel-card {
+  scroll-snap-align: center;
+  background: var(--card-bg);
+  border-radius: 18px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease, opacity 0.4s ease, box-shadow 0.3s ease, background 0.4s ease;
+  cursor: pointer;
+}
+
+.carousel-card:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+.carousel-card.zoomed {
+  position: relative;
+  box-shadow: 0 0 40px var(--accent);
+  background: var(--highlight-bg);
+  z-index: 50;
+}
+
+.carousel-img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 12px;
+  border: 2px solid var(--accent);
+}
+
+.carousel-card h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.carousel-card p {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.price {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* Yengil harakat effekti */
+.carousel-card.active {
+  transform: scale(1.05);
+}
+
+/* 🔹 Filtr paneli */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.filter-bar select {
+  background: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 6px 10px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  outline: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.filter-bar select:hover,
+.filter-bar select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 6px var(--accent);
+}
+
+/* Dark rejim uchun */
+body.dark .filter-bar select {
+  background: #2f2f2f;
+  border-color: #444;
+  color: #f2f2f2;
+}

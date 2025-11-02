@@ -1,0 +1,129 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+body.dark {
+  background-color: #0d142b !important;
+  color: #fff;
+}
+
+body.light {
+  background-color: #f0f2f5 !important;
+  color: #121212;
+}
+
+/* === KONTEYNER === */
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  padding-top: 90px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+/* === MENYU === */
+.menu-wrapper {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 10;
+}
+
+.menu-button {
+  background-color: transparent;
+  border: none;
+  font-size: 32px;
+  cursor: pointer;
+  color: #4a90e2;
+}
+
+.theme-menu {
+  display: none;
+  position: absolute;
+  top: 55px;
+  left: 15px;
+  background-color: rgba(74, 144, 226, 0.9);
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  width: 180px;
+}
+
+.theme-menu.active {
+  display: block;
+}
+
+/* === TITLE === */
+.title-wrapper {
+  margin-bottom: 40px;
+}
+
+.title {
+  font-family: 'Michroma', sans-serif;
+  font-size: 40px;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #007bff, #00c0ff, #7f00ff);
+  background-size: 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 4s linear infinite;
+  letter-spacing: 3px;
+}
+
+.sub {
+  font-size: 0.7em;
+  opacity: 0.8;
+}
+
+@keyframes shine {
+  0% { background-position: 0%; }
+  100% { background-position: 300%; }
+}
+
+/* === BUTTONS === */
+.buttons-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.button {
+  background: linear-gradient(to bottom, #4a90e2, #357ab7);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  width: 300px;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 8px 8px 20px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.button:hover {
+  background: linear-gradient(to bottom, #5aa7ff, #357ab7);
+  transform: scale(1.03);
+}
+
+.button:active {
+  transform: scale(0.97);
+}
+
+/* === FOOTER === */
+.footer {
+  position: absolute;
+  bottom: 20px;
+  font-size: 14px;
+  color: gray;
+}
