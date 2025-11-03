@@ -87,13 +87,8 @@ export default function AddHouse() {
 }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4">
-      <button
-        onClick={() => navigate(-1)}
-        className="text-blue-600 mb-3 inline-block"
-      >
-        ← Ortga
-      </button>
+    <div className="container">
+      
 
       <h1 className="text-2xl font-semibold mb-4">🏡 Uy ma’lumotlari</h1>
 

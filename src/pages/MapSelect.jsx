@@ -43,11 +43,32 @@ export default function MapSelect() {
   // ❌ O‘tkazib yuborish tugmasi
   function handleSkip() {
     localStorage.removeItem("selectedLocation"); // 🧹 Eski joyni tozalaymiz
-    navigate("/add-house"); // Forma sahifasiga o‘tamiz
+    navigate("/add-house"); // Forma sahifasiga o‘tamiz  relative w-full h-screen
   }
 
   return (
     <div className="relative w-full h-screen">
+
+      {/* 🔘 Tugmalar */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-[9999]">
+        <button
+          onClick={handleSkip}
+          className="action-btn view text-white px-5 py-2 rounded-lg shadow hover:bg-gray-600 transition"
+        >
+          O‘tkazib yuborish
+        </button>
+
+        {location && (
+          <button
+            onClick={handleSelect}
+            className="tugma-btn selec text-black px-6 py-2 rounded-lg shadow hover:bg-green-700 transition"
+          >
+            Tanlash ✅
+          </button>
+        )}
+      </div>
+
+
       {/* 🗺️ Karta */}
       <MapContainer
         center={[41.3111, 69.2797]}
@@ -61,14 +82,6 @@ export default function MapSelect() {
         <LocationPicker onSelect={setLocation} />
       </MapContainer>
 
-      {/* ↩️ Ortga */}
-      <button
-        onClick={() => navigate(-1)}
-        className="absolute top-4 left-4 bg-gray-800 text-white px-4 py-2 rounded-lg shadow hover:bg-gray-700 transition z-[9999]"
-      >
-        ← Ortga
-      </button>
-
       {/* 📍 Koordinata */}
       {location && (
         <div className="absolute bottom-24 left-1/2 -translate-x-1/2 bg-white px-4 py-2 rounded-lg shadow text-sm text-gray-700 z-[9999]">
@@ -76,24 +89,7 @@ export default function MapSelect() {
         </div>
       )}
 
-      {/* 🔘 Tugmalar */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-[9999]">
-        <button
-          onClick={handleSkip}
-          className="bg-gray-500 text-white px-5 py-2 rounded-lg shadow hover:bg-gray-600 transition"
-        >
-          O‘tkazib yuborish
-        </button>
-
-        {location && (
-          <button
-            onClick={handleSelect}
-            className="bg-green-600 text-white px-6 py-2 rounded-lg shadow hover:bg-green-700 transition"
-          >
-            Tanlash ✅
-          </button>
-        )}
-      </div>
+      
     </div>
   );
 }

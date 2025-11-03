@@ -1,6 +1,6 @@
 /* === ASOSIY QISM === */
 .reg-wrapper {
-  min-height: 100vh;
+  max-width: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;

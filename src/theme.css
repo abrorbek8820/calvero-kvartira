@@ -2,13 +2,13 @@
 .carousel-wrapper {
   background: var(--bg-color);
   color: var(--text-color);
-  min-width: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
   transition: background 0.4s ease, color 0.4s ease;
   max-height: 90vh;
+  /*max-width: 100ds;*/
 }
 
 .carousel-title {
@@ -185,13 +185,33 @@ body.dark .container {
   box-shadow: 0 6px 16px rgba(59,130,246,0.4);
 }
 
+.tugma-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 1.05rem;
+  transition: all 0.25s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  text-decoration: none;
+}
+
+.tugma-btn.selec {
+  background: green;
+}
+
 /* 📞 Qo‘ng‘iroq qilish */
 .action-btn.call {
   background: linear-gradient(135deg, #059669, #10b981);
 }
 .action-btn.call:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(16,185,129,0.4);
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.416);
 }
 
 /* 🌙 Dark rejim */
