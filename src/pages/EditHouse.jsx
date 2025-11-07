@@ -17,7 +17,7 @@ export default function EditHouse() {
       setForm(parsed);
       setImages(parsed.images || []);
     } else {
-      navigate("/my-houses");
+      navigate("/my-houses", { replace: true });
     }
   }, [navigate]);
 
@@ -89,7 +89,7 @@ export default function EditHouse() {
     } else {
       alert("✅ Ma’lumot yangilandi!");
       localStorage.removeItem("editHouse");
-      navigate("/my-houses");
+      navigate("/my-houses", { replace: true });
     }
   }
 
@@ -109,7 +109,8 @@ export default function EditHouse() {
         ✏️ Uy ma’lumotini tahrirlash
       </h1>
 
-      <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+      <form onSubmit={handleSubmit} className="form-container">
+
         {/* Xonalar */}
         <input
           name="rooms"

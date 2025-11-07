@@ -36,7 +36,7 @@ export default function AddHouse() {
   e.preventDefault();
 
   const userId = localStorage.getItem("userId");
-  if (!userId) return navigate("/register");
+  if (!userId) return navigate("/register",);
 
   let uploadedUrls = [];
 
@@ -82,7 +82,7 @@ export default function AddHouse() {
   } else {
     alert("✅ Uy muvaffaqiyatli qo‘shildi!");
     localStorage.removeItem("selectedLocation");
-    navigate("/my-houses");
+    navigate("/my-houses", { replace: true });
   }
 }
 
@@ -98,7 +98,9 @@ export default function AddHouse() {
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+      <form onSubmit={handleSubmit} className="form-container">
+
+
 
         {/* Viloyat */}
         <select
@@ -108,7 +110,8 @@ export default function AddHouse() {
             handleChange(e);
             setForm({ ...form, city: e.target.value, district: "" });
           }}
-          className="border p-2 rounded"
+          className="border p-3 rounded-lg text-[15px]"
+
           required
         >
           <option value="">Viloyat / Shahar</option>
@@ -125,7 +128,8 @@ export default function AddHouse() {
             name="district"
             value={form.district}
             onChange={handleChange}
-            className="border p-2 rounded"
+            className="border p-3 rounded-lg text-[15px]"
+
             required
           >
             <option value="">Tuman / Shahar</option>
@@ -144,12 +148,14 @@ export default function AddHouse() {
           placeholder="Necha xona"
           value={form.rooms}
           onChange={handleChange}
-          className="border p-2 rounded"
+          className="border p-3 rounded-lg text-[15px]"
+
           required
         />
 
         {/* Narx / Valyuta / To‘lov turi / Narx turi */}
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-3">
+
           <input
             name="price"
             type="number"
@@ -164,7 +170,8 @@ export default function AddHouse() {
             name="currency"
             value={form.currency}
             onChange={handleChange}
-            className="border p-2 rounded"
+            className="border p-3 rounded-lg text-[15px]"
+
           >
             <option value="UZS">so‘m</option>
             <option value="YE">y.e.</option>
@@ -174,7 +181,8 @@ export default function AddHouse() {
             name="payment_period"
             value={form.payment_period}
             onChange={handleChange}
-            className="border p-2 rounded"
+            className="border p-3 rounded-lg text-[15px]"
+
           >
             <option value="oyiga">oyiga</option>
             <option value="sutkaga">sutkaga</option>
@@ -184,7 +192,8 @@ export default function AddHouse() {
             name="price_type"
             value={form.price_type}
             onChange={handleChange}
-            className="border p-2 rounded"
+            className="border p-3 rounded-lg text-[15px]"
+
           >
             <option value="umumiy">Umumiy</option>
             <option value="bir_kishiga">1 kishiga</option>
@@ -196,7 +205,8 @@ export default function AddHouse() {
           name="target"
           value={form.target}
           onChange={handleChange}
-          className="border p-2 rounded"
+          className="border p-3 rounded-lg text-[15px]"
+
           required
         >
           <option value="">Kimlarga?</option>
@@ -265,7 +275,8 @@ export default function AddHouse() {
 
           {/* Oldindan ko‘rish (preview) */}
           {images.length > 0 && (
-            <div className="mt-2 flex gap-2 overflow-x-auto">
+            <div className="mt-3 flex gap-3 overflow-x-auto py-2">
+
               {images.map((file, i) => (
                 <div key={i} className="relative flex-shrink-0">
                   <button

@@ -8,6 +8,7 @@ import MapSelect from "./pages/MapSelect.jsx";
 import EditHouse from "./pages/EditHouse.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HouseDetails from "./pages/HouseDetails.jsx";
+import OfertaRent from "./pages/OfertaRent";
 
 
 
@@ -25,6 +26,7 @@ export default function App() {
         <Route path="/map-select" element={<MapSelect />} />
         <Route path="/edit-house" element={<EditHouse />} />
         <Route path="/house-details/:id" element={<HouseDetails />} />
+        <Route path="/oferta-rent" element={<OfertaRent />} />
       </Routes>
     </BrowserRouter>
   );

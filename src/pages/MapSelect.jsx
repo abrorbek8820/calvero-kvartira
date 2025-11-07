@@ -37,13 +37,15 @@ export default function MapSelect() {
     if (location) {
       localStorage.setItem("selectedLocation", JSON.stringify(location));
     }
-    navigate("/add-house");
+    navigate("/add-house", { replace: true });
+;
   }
 
   // ❌ O‘tkazib yuborish tugmasi
   function handleSkip() {
     localStorage.removeItem("selectedLocation"); // 🧹 Eski joyni tozalaymiz
-    navigate("/add-house"); // Forma sahifasiga o‘tamiz  relative w-full h-screen
+    navigate("/add-house", { replace: true });
+ // Forma sahifasiga o‘tamiz  relative w-full h-screen
   }
 
   return (

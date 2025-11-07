@@ -166,7 +166,7 @@ export default function HouseDetails() {
   )}
 
   {ownerPhone && (
-    <a href={`tel:${ownerPhone}`} className="action-btn call">
+    <a href={`tel:+${ownerPhone}`} className="action-btn call">
       📞 Qo‘ng‘iroq qilish
     </a>
   )}
