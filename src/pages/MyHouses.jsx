@@ -13,7 +13,7 @@ export default function MyHouses() {
     const phone = localStorage.getItem("userPhone");
     if (!phone) {
       console.warn("[MyHouses] No userPhone found, redirecting...");
-      navigate("/register");
+      navigate("/register", { replace: true });
     }
   }, [navigate]);
 
@@ -30,7 +30,7 @@ export default function MyHouses() {
 
     if (!userId) {
       console.warn("[MyHouses] No userId found, redirecting...");
-      navigate("/register");
+      navigate("/register", { replace: true });
       return;
     }
 
@@ -64,7 +64,7 @@ export default function MyHouses() {
   // ✏️ Tahrirlash
   function handleEdit(house) {
     localStorage.setItem("editHouse", JSON.stringify(house));
-    navigate("/edit-house");
+    navigate("/edit-house", { replace: true });
   }
 
   // 🟢 Faollikni o‘zgartirish
@@ -92,7 +92,7 @@ export default function MyHouses() {
         <button
           onClick={() => {
             localStorage.removeItem("selectedLocation");
-            navigate("/map-select");
+            navigate("/map-select", { replace: true });
           }}
           className="bg-green-600 text-white px-4 py-2 rounded shadow hover:bg-green-700"
         >

@@ -7,6 +7,8 @@ export default function AddHouse() {
   const navigate = useNavigate();
   const [location, setLocation] = useState(null);
   const [images, setImages] = useState([]);
+  const [saving, setSaving] = useState(false);
+
 
   useEffect(() => {
     const loc = localStorage.getItem("selectedLocation");
@@ -35,8 +37,11 @@ export default function AddHouse() {
   async function handleSubmit(e) {
   e.preventDefault();
 
+  if (saving) return; // ✅ 2 marta bosishni blok qiladi
+  setSaving(true);
+
   const userId = localStorage.getItem("userId");
-  if (!userId) return navigate("/register",);
+  if (!userId) return navigate("/register", { replace: true });
 
   let uploadedUrls = [];
 
@@ -77,14 +82,17 @@ export default function AddHouse() {
     },
   ]);
 
-  if (error) {
+    if (error) {
     alert("Xatolik: " + error.message);
+   setSaving(false);
   } else {
-    alert("✅ Uy muvaffaqiyatli qo‘shildi!");
+    alert("✅ Uy qo‘shildi!");
     localStorage.removeItem("selectedLocation");
     navigate("/my-houses", { replace: true });
   }
 }
+
+
 
   return (
     <div className="container">
@@ -299,9 +307,14 @@ export default function AddHouse() {
           )}
         </div>
 
-        <button className="bg-green-600 text-white py-2 rounded">
-          Saqlash ✅
-        </button>
+        <button
+   disabled={saving}
+   className={`bg-green-600 text-white py-2 rounded transition ${
+     saving ? "opacity-60 cursor-not-allowed" : ""
+   }`}
+ >
+   {saving ? "⏳ Saqlanmoqda..." : "Saqlash ✅"}
+ </button>
       </form>
     </div>
   );
